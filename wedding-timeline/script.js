@@ -171,7 +171,7 @@ const catalogData = [
     city: "Da Nang",
     description: "Iconic Ba Na Hills bridge cradled by giant stone hands.",
     details:
-      "Take the early cable car to beat crowds. Jackets recommended—temperatures drop at altitude.",
+      "Take the early cable car to beat crowds. Jackets recommended�temperatures drop at altitude.",
     map: "https://maps.app.goo.gl/pjndedZs1KQHW7UAA",
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=60",
   },
@@ -207,7 +207,7 @@ const catalogData = [
     city: "Ho Chi Minh City",
     description: "Two-hour cruise with skyline views and live music.",
     details:
-      "Best for groups of 6–8. Bring lightweight scarves for windy decks.",
+      "Best for groups of 6�8. Bring lightweight scarves for windy decks.",
     map: "https://maps.app.goo.gl/ky8ZQf8bVq4Fs1tBA",
     image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=60",
   },
@@ -225,7 +225,7 @@ const catalogData = [
     city: "Ho Chi Minh City",
     description: "Sizzling beefsteak breakfast served with egg and baguette.",
     details:
-      "Order iced condensed milk coffee and split plates—portions are hearty.",
+      "Order iced condensed milk coffee and split plates�portions are hearty.",
     map: "https://maps.app.goo.gl/JGUL5QgU3a6VqFez5",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=60",
   },
@@ -283,12 +283,13 @@ const catalogData = [
     map: "https://photos.app.goo.gl",
     image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=60",
   },
-];\n
+];
 
 const catalogGrid = document.getElementById("catalog-grid");
 const catalogPrev = document.getElementById("catalog-prev");
 const catalogNext = document.getElementById("catalog-next");
 const catalogLabel = document.getElementById("catalog-page-label");
+const catalogFilters = document.querySelectorAll(".catalog-filter");
 const catalogModal = document.getElementById("catalog-modal");
 const catalogModalImage = document.getElementById("catalog-modal-image");
 const catalogModalTitle = document.getElementById("catalog-modal-title");
@@ -299,16 +300,22 @@ const catalogModalLink = document.getElementById("catalog-modal-link");
 
 const catalogPageSize = 20;
 let catalogPage = 1;
+let catalogCityFilter = "all";
 
 function renderCatalog(page = 1) {
   if (!catalogGrid) return;
-  const totalPages = Math.ceil(catalogData.length / catalogPageSize);
+  const filtered =
+    catalogCityFilter === "all"
+      ? catalogData
+      : catalogData.filter((item) => item.city === catalogCityFilter);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / catalogPageSize));
   catalogPage = Math.min(Math.max(page, 1), totalPages);
   const start = (catalogPage - 1) * catalogPageSize;
-  const slice = catalogData.slice(start, start + catalogPageSize);
-  catalogGrid.innerHTML = slice
-    .map(
-      (item, idx) => `
+  const slice = filtered.slice(start, start + catalogPageSize);
+  catalogGrid.innerHTML =
+    slice
+      .map(
+        (item) => `
       <article class="catalog-card" role="listitem">
         <figure>
           <img src="${item.image}" alt="${item.title}" loading="lazy" />
@@ -319,12 +326,12 @@ function renderCatalog(page = 1) {
           <p>${item.description}</p>
           <div class="catalog-card__actions">
             <a class="catalog-card__map" href="${item.map}" target="_blank" rel="noopener">Map</a>
-            <button class="catalog-card__more" data-index="${start + idx}">Details</button>
+            <button class="catalog-card__more" data-index="${catalogData.indexOf(item)}">Details</button>
           </div>
         </div>
       </article>`
-    )
-    .join("");
+      )
+      .join("") || `<p class="catalog-empty">No listings yet for this city.</p>`;
   if (catalogLabel) catalogLabel.textContent = `Page ${catalogPage} of ${totalPages}`;
   if (catalogPrev) catalogPrev.disabled = catalogPage <= 1;
   if (catalogNext) catalogNext.disabled = catalogPage >= totalPages;
@@ -360,6 +367,15 @@ if (catalogGrid) {
   });
 }
 
+catalogFilters.forEach((button) => {
+  button.addEventListener("click", () => {
+    catalogFilters.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+    catalogCityFilter = button.dataset.city || "all";
+    renderCatalog(1);
+  });
+});
+
 catalogPrev?.addEventListener("click", () => renderCatalog(catalogPage - 1));
 catalogNext?.addEventListener("click", () => renderCatalog(catalogPage + 1));
 
@@ -372,4 +388,5 @@ document.addEventListener("keydown", (event) => {
     closeCatalogModal();
   }
 });
+
 
