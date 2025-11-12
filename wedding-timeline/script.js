@@ -68,22 +68,22 @@ window.addEventListener("scroll", () => {
 // Catalog data + rendering
 const catalogData = [
   {
-    title: "Banh Mi Huynh Hoa",
+    title: "Bánh Mì Huỳnh Hoa",
     city: "Ho Chi Minh City",
     description: "Iconic Saigon sandwich shop stacked with pate, herbs, and pickles.",
     details:
       "Arrive early to avoid queues. Grab two and head to Turtle Lake for a picnic. Cash only; expect a savory, peppery punch.",
-    map: "https://maps.app.goo.gl/4oCGitG9JtPj7y1SA",
-    image: "https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/Rp1S5M7aHajAMc8ZA",
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyy4GHYePmWfEal_G5hpVxoyH-tPjGiK22TOTSuGf9mVWwenHrweW5EsyJUpq4FWQGGtOOe6JiVmZxFp-NE6tOLlvkDPTgphDJQOYEFwVboFAoE9gvRz_Aad_zjtFxts9HUvqm5-6v7_Y6B=w432-h369-k-no",
   },
   {
-    title: "The Note Coffee",
+    title: "Little HaNoi Egg Coffee (Yersin)",
     city: "Ho Chi Minh City",
-    description: "Layers of egg coffee and handwritten notes near Hoan Kiem Lake vibes in Saigon.",
+    description: "Layers of egg coffee and handwritten notes in Saigon.",
     details:
       "Great mid-morning caffeine stop. Write a love note and stick it on the wall before heading to fittings.",
-    map: "https://maps.app.goo.gl/R8Jfxb1CYyUpv2KZ9",
-    image: "https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/bvSXaJtr2NQS52Dz7",
+    image: "https://jackfruitadventure.com/wp-content/uploads/2023/07/unnamed-5.jpg",
   },
   {
     title: "Ben Thanh Market",
@@ -91,8 +91,8 @@ const catalogData = [
     description: "Indoor market for fabrics, souvenirs, and crunchy lotus snacks.",
     details:
       "Best explored before noon. Practice bartering with a smile and grab dried fruit for welcome baskets.",
-    map: "https://maps.app.goo.gl/LXf4rEwQ1Y7uNHCv6",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/RTXxHzGYJSdeEhbq7",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiH6DQ3NH98Ku8E_riJ9zCpWdJbSLiX3P7hQ&s",
   },
   {
     title: "Cafe Apartment",
@@ -100,8 +100,8 @@ const catalogData = [
     description: "Multi-level creative hub packed with tiny cafes and boutiques.",
     details:
       "Take the elevator to the top then wander down floor by floor. Perfect for group photos and iced coconut coffee.",
-    map: "https://maps.app.goo.gl/2yBfcha7fsdmd29P8",
-    image: "https://images.unsplash.com/photo-1432836431433-925d3cc0a5cd?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/G2YF8NhxG7eu339BA",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs23M54EgDHVvQXrJcIO6qCg_7w9wO99Px3Q&s",
   },
   {
     title: "Bui Vien Walking Street",
@@ -109,17 +109,17 @@ const catalogData = [
     description: "Neon nightlife stretch with street performers and rooftop lounges.",
     details:
       "Best after 9 PM. Pair with Poseidon dinner beforehand. Keep valuables close; the street is lively and crowded.",
-    map: "https://maps.app.goo.gl/J1nyPG4V6xLzE4UZA",
-    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/xpqRGpCrRLE6T8Pe7",
+    image: "https://www.uncovervietnam.com/wp-content/uploads/2019/08/Nightlife-at-Bui-Vien.jpg",
   },
   {
-    title: "Coc Ly Spa",
+    title: "Nola Spa",
     city: "Ho Chi Minh City",
     description: "Relaxing Vietnamese spa for steam + scrub between fittings.",
     details:
       "Book group slots via WhatsApp. Their herbal compress is ideal before the travel days north.",
-    map: "https://maps.app.goo.gl/b9AFup1PF9TA1yM46",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/BreCHDjiCoemYFiA7",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi1-m-OH0CmJ8YpVgdWQfABfveXWgL5IL05g&s",
   },
   {
     title: "Mui Ne Sand Dunes",
@@ -127,17 +127,17 @@ const catalogData = [
     description: "Sunrise jeep ride across red and white dunes.",
     details:
       "Pack scarves and sunglasses. Vendors rent sleds for photos; go early to beat the heat.",
-    map: "https://maps.app.goo.gl/f3zFHo9JcVatpMfq5",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/6Mehw2fP2AjHnUUC9",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLHii7c0ZjwJHlmW-Z3Ki9mHu9OnwGCYZAZg&s",
   },
   {
-    title: "Anam Infinity Pool",
+    title: "Anam Pool",
     city: "Phan Thiet",
     description: "Resort-side pool with ocean views and daybeds.",
     details:
       "Order the lemongrass spritz from the pool bar. Great midday reset before rehearsals.",
-    map: "https://maps.app.goo.gl/Bh3H5Jk2arbj923ZA",
-    image: "https://images.unsplash.com/photo-1501117716987-c8e1ecb210cc?auto=format&fit=crop&w=600&q=60",
+    map: "https://maps.app.goo.gl/sfHjBpDBFtTqJnxr6",
+    image: "https://images.squarespace-cdn.com/content/v1/5c9e66e1d7819e21e09450be/1672486242984-7SWJGPKCOSFYY4L8662J/04+The+Anam+Mui+Ne.jpg",
   },
   {
     title: "Lantern Workshop",
